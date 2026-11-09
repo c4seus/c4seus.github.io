@@ -42,7 +42,7 @@
   main {
     max-width: 720px;
     margin: 0 auto;
-    padding: 96px 24px 64px;
+    padding: 56px 24px 64px;
   }
   h1 {
     margin: 0 0 12px;
@@ -58,7 +58,7 @@
     max-width: 52ch;
   }
   .section-title {
-    margin: 72px 0 20px;
+    margin: 40px 0 16px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -126,47 +126,73 @@
     color: var(--muted);
     font-size: 15px;
   }
-  .donate {
+  .support-lead {
+    margin: 0 0 20px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .wallets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .wallet {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 8px 24px;
+    padding: 16px 18px;
+    min-width: 0;
   }
-  .donate-row {
-    display: grid;
-    grid-template-columns: 56px 1fr auto;
-    gap: 16px;
+  .wallet-head {
+    display: flex;
     align-items: center;
-    padding: 14px 0;
-    border-top: 1px solid var(--border);
-  }
-  .donate-row:first-child {
-    border-top: none;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
   }
   .coin {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
+    letter-spacing: 0.04em;
   }
   .addr {
+    display: block;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--muted);
     word-break: break-all;
   }
   .copy {
     font: inherit;
-    font-size: 13px;
-    padding: 6px 12px;
+    font-size: 12px;
+    padding: 4px 10px;
     border-radius: 8px;
     border: 1px solid var(--border);
     background: transparent;
-    color: var(--text);
+    color: var(--muted);
     cursor: pointer;
+    white-space: nowrap;
     transition: border-color 0.2s ease, color 0.2s ease;
   }
   .copy:hover {
     border-color: var(--accent);
     color: var(--accent);
+  }
+  .kofi {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .kofi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
   footer {
     margin-top: 80px;
@@ -185,7 +211,7 @@
   @media (max-width: 480px) {
     main { padding: 64px 20px 48px; }
     h1 { font-size: 34px; }
-    .donate-row { grid-template-columns: 1fr; gap: 8px; }
+    .wallets { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -218,33 +244,50 @@
         </a>
       </li>
     </ul>
-    <h2 class="section-title">Support my work</h2>
-    <p class="tagline">If something here helped you, you can leave a tip in crypto.</p>
-    <div class="donate">
-      <div class="donate-row">
-        <span class="coin">ETH</span>
+
+    <h2 class="section-title">Support</h2>
+    <p class="support-lead">Everything here is free and open source. If a project helped you, you can send a tip in crypto or on Ko-fi.</p>
+    <div class="wallets">
+      <div class="wallet">
+        <div class="wallet-head">
+          <span class="coin">ETH</span>
+          <button class="copy" type="button" data-copy="0xa6B1FDa6086fbe84155a3F4963952F738D506aa8">Copy</button>
+        </div>
         <span class="addr">0xa6B1FDa6086fbe84155a3F4963952F738D506aa8</span>
-        <button class="copy" type="button" data-copy="0xa6B1FDa6086fbe84155a3F4963952F738D506aa8">Copy</button>
       </div>
-      <div class="donate-row">
-        <span class="coin">BTC</span>
+      <div class="wallet">
+        <div class="wallet-head">
+          <span class="coin">BTC</span>
+          <button class="copy" type="button" data-copy="bc1qjdaxr3gvmnexvnlm0ew90prsnfnyrgaxpsncgr">Copy</button>
+        </div>
         <span class="addr">bc1qjdaxr3gvmnexvnlm0ew90prsnfnyrgaxpsncgr</span>
-        <button class="copy" type="button" data-copy="bc1qjdaxr3gvmnexvnlm0ew90prsnfnyrgaxpsncgr">Copy</button>
       </div>
-      <div class="donate-row">
-        <span class="coin">TRON</span>
+      <div class="wallet">
+        <div class="wallet-head">
+          <span class="coin">SOL</span>
+          <button class="copy" type="button" data-copy="44EBZyffWjPFDL65RSQT8ohXgYV71ewTGB86FRgjnfdE">Copy</button>
+        </div>
+        <span class="addr">44EBZyffWjPFDL65RSQT8ohXgYV71ewTGB86FRgjnfdE</span>
+      </div>
+      <div class="wallet">
+        <div class="wallet-head">
+          <span class="coin">TRON</span>
+          <button class="copy" type="button" data-copy="THo1NS9PvYDgiw7wjBoyqrgrcfPd5Y6WKw">Copy</button>
+        </div>
         <span class="addr">THo1NS9PvYDgiw7wjBoyqrgrcfPd5Y6WKw</span>
-        <button class="copy" type="button" data-copy="THo1NS9PvYDgiw7wjBoyqrgrcfPd5Y6WKw">Copy</button>
       </div>
-      <div class="donate-row">
-        <span class="coin">XLM</span>
+      <div class="wallet">
+        <div class="wallet-head">
+          <span class="coin">XLM</span>
+          <button class="copy" type="button" data-copy="GC6BXGZJ64ZL2GQ5VBLQA6SJSBKBTE7OFYTVIPPNXPH5GFBQTMT6ERVV">Copy</button>
+        </div>
         <span class="addr">GC6BXGZJ64ZL2GQ5VBLQA6SJSBKBTE7OFYTVIPPNXPH5GFBQTMT6ERVV</span>
-        <button class="copy" type="button" data-copy="GC6BXGZJ64ZL2GQ5VBLQA6SJSBKBTE7OFYTVIPPNXPH5GFBQTMT6ERVV">Copy</button>
       </div>
     </div>
+    <a class="kofi" href="https://ko-fi.com/c4seus">Tip me on Ko-fi</a>
+
     <footer>
       <a href="https://github.com/c4seus">GitHub</a>
-      <a href="mon-suivi-candidature/privacy.html">Mon Suivi Candidature, privacy policy</a>
     </footer>
   </main>
   <script>
