@@ -44,18 +44,6 @@
     margin: 0 auto;
     padding: 96px 24px 64px;
   }
-  .mark {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: var(--accent);
-    color: #FFFFFF;
-    display: grid;
-    place-items: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 28px;
-  }
   h1 {
     margin: 0 0 12px;
     font-size: 40px;
@@ -138,6 +126,48 @@
     color: var(--muted);
     font-size: 15px;
   }
+  .donate {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 8px 24px;
+  }
+  .donate-row {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+  .donate-row:first-child {
+    border-top: none;
+  }
+  .coin {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .addr {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--muted);
+    word-break: break-all;
+  }
+  .copy {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .copy:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
   footer {
     margin-top: 80px;
     padding-top: 24px;
@@ -155,12 +185,12 @@
   @media (max-width: 480px) {
     main { padding: 64px 20px 48px; }
     h1 { font-size: 34px; }
+    .donate-row { grid-template-columns: 1fr; gap: 8px; }
   }
 </style>
 </head>
 <body>
   <main>
-    <div class="mark" aria-hidden="true">c</div>
     <h1>c4seus</h1>
     <p class="tagline">Open source projects on security, privacy and tooling.</p>
 
@@ -188,11 +218,44 @@
         </a>
       </li>
     </ul>
-
+    <h2 class="section-title">Support my work</h2>
+    <p class="tagline">If something here helped you, you can leave a tip in crypto.</p>
+    <div class="donate">
+      <div class="donate-row">
+        <span class="coin">ETH</span>
+        <span class="addr">0xa6B1FDa6086fbe84155a3F4963952F738D506aa8</span>
+        <button class="copy" type="button" data-copy="0xa6B1FDa6086fbe84155a3F4963952F738D506aa8">Copy</button>
+      </div>
+      <div class="donate-row">
+        <span class="coin">BTC</span>
+        <span class="addr">bc1qjdaxr3gvmnexvnlm0ew90prsnfnyrgaxpsncgr</span>
+        <button class="copy" type="button" data-copy="bc1qjdaxr3gvmnexvnlm0ew90prsnfnyrgaxpsncgr">Copy</button>
+      </div>
+      <div class="donate-row">
+        <span class="coin">TRON</span>
+        <span class="addr">THo1NS9PvYDgiw7wjBoyqrgrcfPd5Y6WKw</span>
+        <button class="copy" type="button" data-copy="THo1NS9PvYDgiw7wjBoyqrgrcfPd5Y6WKw">Copy</button>
+      </div>
+      <div class="donate-row">
+        <span class="coin">XLM</span>
+        <span class="addr">GC6BXGZJ64ZL2GQ5VBLQA6SJSBKBTE7OFYTVIPPNXPH5GFBQTMT6ERVV</span>
+        <button class="copy" type="button" data-copy="GC6BXGZJ64ZL2GQ5VBLQA6SJSBKBTE7OFYTVIPPNXPH5GFBQTMT6ERVV">Copy</button>
+      </div>
+    </div>
     <footer>
       <a href="https://github.com/c4seus">GitHub</a>
       <a href="mon-suivi-candidature/privacy.html">Mon Suivi Candidature, privacy policy</a>
     </footer>
   </main>
+  <script>
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
