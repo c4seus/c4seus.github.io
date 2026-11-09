@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Open source projects by c4seus." />
+<title>c4seus</title>
+<style>
+  :root {
+    --bg: #F7F7F5;
+    --surface: #FFFFFF;
+    --text: #17171A;
+    --muted: #6B6B73;
+    --border: #E4E4E0;
+    --accent: #3A5BD9;
+    --tag-bg: #EEF1FB;
+    --tag-text: #3A5BD9;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0E0E10;
+      --surface: #17171A;
+      --text: #EDEDF0;
+      --muted: #8E8E98;
+      --border: #26262B;
+      --accent: #8AA4FF;
+      --tag-bg: #1E2333;
+      --tag-text: #8AA4FF;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 96px 24px 64px;
+  }
+  .mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  h1 {
+    margin: 0 0 12px;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .tagline {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 52ch;
+  }
+  .section-title {
+    margin: 72px 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .projects a {
+    display: block;
+    position: relative;
+    padding: 24px 56px 24px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .projects a:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+  .projects a::after {
+    content: "\2197";
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 18px;
+    color: var(--muted);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .projects a:hover::after {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+  .name {
+    display: block;
+    font-size: 20px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 12px;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+  }
+  .desc {
+    display: block;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    font-size: 14px;
+  }
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  footer a:hover { color: var(--text); }
+  @media (max-width: 480px) {
+    main { padding: 64px 20px 48px; }
+    h1 { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">c</div>
+    <h1>c4seus</h1>
+    <p class="tagline">Open source projects on security, privacy and tooling.</p>
+
+    <h2 class="section-title">Projects</h2>
+    <ul class="projects">
+      <li>
+        <a href="https://github.com/c4seus/Louche-non-">
+          <span class="name">Louche, non?</span>
+          <span class="tags"><span class="tag">Android</span><span class="tag">Open source</span></span>
+          <span class="desc">A free app that detects SMS and email scams, built for the French market.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/c4seus/elftriage">
+          <span class="name">elftriage</span>
+          <span class="tags"><span class="tag">C</span><span class="tag">Binary analysis</span></span>
+          <span class="desc">An ELF binary parser and triage tool.</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/c4seus/lacis">
+          <span class="name">Lacis</span>
+          <span class="tags"><span class="tag">Desktop</span><span class="tag">OSINT</span></span>
+          <span class="desc">Maps French companies, executives and addresses.</span>
+        </a>
+      </li>
+    </ul>
+
+    <footer>
+      <a href="https://github.com/c4seus">GitHub</a>
+      <a href="mon-suivi-candidature/privacy.html">Mon Suivi Candidature, privacy policy</a>
+    </footer>
+  </main>
+</body>
+</html>
